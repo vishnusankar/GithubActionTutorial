@@ -27,5 +27,5 @@ jobs:
         with:
           type: now
           FROM_BRANCH: release1
-          target_branch: develop
+          target_branch: master
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
