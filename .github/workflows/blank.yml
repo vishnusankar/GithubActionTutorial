@@ -22,10 +22,10 @@ jobs:
 #          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 #          FROM_BRANCH: "release_1"
 #          TO_BRANCH: "develop"
-      - name: Merge development -> staging
+      - name: Merge release_1 -> develop
         uses: devmasx/merge-branch@v1.3.0
         with:
           type: now
-          from_branch: release_1
-          target_branch: develop
-          github_token: ${{ github.token }}
+          FROM_BRANCH: release_1
+          TO_BRANCH: develop
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
