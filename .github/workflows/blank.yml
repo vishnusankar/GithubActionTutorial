@@ -15,10 +15,17 @@ jobs:
 #        uses: actions/setup-node@v1
 #        with:
 #          node-version: 12
-      - name: Opening pull request
-        id: pull
-        uses: tretuna/sync-branches@1.2.0
+#      - name: Opening pull request
+#        id: pull
+#        uses: tretuna/sync-branches@1.2.0
+#        with:
+#          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#          FROM_BRANCH: "release_1"
+#          TO_BRANCH: "develop"
+      - name: Merge development -> staging
+        uses: devmasx/merge-branch@v1.3.0
         with:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          FROM_BRANCH: "release_1"
-          TO_BRANCH: "develop"
+          type: now
+          from_branch: release_1
+          target_branch: develop
+          github_token: ${{ github.token }}
