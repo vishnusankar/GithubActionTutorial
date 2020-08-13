@@ -26,6 +26,6 @@ jobs:
         uses: devmasx/merge-branch@v1.3.0
         with:
           type: now
-          FROM_BRANCH: release1
-          target_branch: master
+          FROM_BRANCH: master
+          target_branch: release1
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
