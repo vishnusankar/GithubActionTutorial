@@ -1,0 +1,15 @@
+- name: Sync branches
+  uses: TreTuna/sync-branches@1.2.0
+  with:
+    # User token to be associated with this pull request.
+    GITHUB_TOKEN: 
+    # Branch from make pull-request from
+    FROM_BRANCH: 
+    # Branch to make the pull-request against
+    TO_BRANCH: 
+    # What you would like as the title of the pull request. Default: 'sync: {FROM_BRANCH} to {TO_BRANCH}'
+    PULL_REQUEST_TITLE: # optional
+    # What you would like in the body of the pull request. Default: 'New code has just landed in {fromBranch} so let's bring {toBranch} up to speed!'
+    PULL_REQUEST_BODY: # optional
+    # Set to 'true' for the pull request to be opened as a draft. Default: 'false'
+    PULL_REQUEST_IS_DRAFT: # optional
