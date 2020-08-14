@@ -1,31 +1,17 @@
-name: Sync
+name: Sync multiple branches
 on:
   push:
     branches:
-      - '*'
-
+      - 'release/*'
 jobs:
-  sync-branches:
+  merge-branch:
     runs-on: ubuntu-latest
-#    name: Syncing branches
     steps:
-#      - name: Checkout
-#        uses: actions/checkout@v2
-#      - name: Set up Node
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: 12
-#      - name: Opening pull request
-#        id: pull
-#        uses: tretuna/sync-branches@1.2.0
-#        with:
-#          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-#          FROM_BRANCH: "release_1"
-#          TO_BRANCH: "develop"
-      - name: Merge release1 -> develop
-        uses: devmasx/merge-branch@v1.3.0
+      - uses: actions/checkout@v2
+      - uses: everlytic/branch-merge@1.1.0
+
         with:
-          type: now
-          FROM_BRANCH: release1
+          source_ref: release1
           target_branch: develop
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          github_token: ${{ github.token }}
+          commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
